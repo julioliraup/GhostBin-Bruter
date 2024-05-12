@@ -41,7 +41,7 @@ class Ghostbin(threading.Thread):
         self.invalid = 0
         
     def worker(self):
-        self.code = "".join(random.choice("abcdefghijklmnopqrstuvwxyz0123456789") for i in range(5))
+        self.code = "".join(random.choice("abcdefghijklmnopqrstuvwxyz0123456789") for i in range(24))
         headers = {"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0","Referer":"https://pst.innomi.net/","Connection":"close","Accept-Language":"en-US,en;q=0.5","Accept-Encoding":"gzip, deflate, br","Content-Type":"application/x-www-form-urlencoded"}
         req = requests.get("https://pst.innomi.net/paste/" + self.code, headers=headers)
 
