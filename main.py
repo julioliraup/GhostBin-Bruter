@@ -42,12 +42,12 @@ class Ghostbin(threading.Thread):
         
     def worker(self):
         self.code = "".join(random.choice("abcdefghijklmnopqrstuvwxyz0123456789") for i in range(5))
-        headers = {"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0","Referer":"https://ghostbin.com/","Connection":"close","Accept-Language":"en-US,en;q=0.5","Accept-Encoding":"gzip, deflate, br","Content-Type":"application/x-www-form-urlencoded"}
-        req = requests.get("https://ghostbin.com/paste/" + self.code, headers=headers)
+        headers = {"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0","Referer":"https://pst.innomi.net/","Connection":"close","Accept-Language":"en-US,en;q=0.5","Accept-Encoding":"gzip, deflate, br","Content-Type":"application/x-www-form-urlencoded"}
+        req = requests.get("https://pst.innomi.net/paste/" + self.code, headers=headers)
 
         if(req.status_code == 200):
             self.valid += 1
-            open('hits.txt', 'a+').write("https://ghostbin.com/paste/" + self.code + "\n")
+            open('hits.txt', 'a+').write("https://pst.innomi.net/paste/" + self.code + "\n")
         else:
             self.invalid += 1
         
